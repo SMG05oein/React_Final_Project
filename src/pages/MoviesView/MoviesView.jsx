@@ -1,9 +1,9 @@
 import React from 'react';
 
-const MoviesView = () => {
+const MoviesView = ({idx}) => {
     return (
         <div>
-            
+            MoviesView {idx}
         </div>
     );
 };

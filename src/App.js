@@ -6,10 +6,11 @@ import HomePage from "./pages/HomePage/HomePage";
 import Movies from "./pages/Movies/Movies";
 import MoviesView from "./pages/MoviesView/MoviesView";
 import NotFound from "./pages/NotFound/NotFound";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (
-        <div>
+        <div style={{ backgroundColor: "#000000", minHeight: "100vh", color: "white" }}>
             {/*<TopMenu/>*/}
             <Routes>
 
