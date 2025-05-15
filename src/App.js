@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (
-        <div style={{ backgroundColor: "#000000", minHeight: "100vh", color: "white" }}>
+        <div>
             {/*<TopMenu/>*/}
             <Routes>
 
