@@ -1,18 +1,18 @@
 import React from 'react';
-import {usePopularMovies} from "../../../../hooks/usePopularMovies";
+import {usePopularMoviesQuery} from "../../../../hooks/usePopularMovies";
 import {Alert} from "react-bootstrap";
 import './Banner.style.css'
 
 const Banner = () => {
-    const {data, isLoading, isError, error} = usePopularMovies();
+    const {data, isLoading, isError, error} = usePopularMoviesQuery();
     console.log(data)
 
     if(isError){
-        <Alert variant={'danger'}>{error.message}</Alert>
+        return <Alert variant={'danger'}>{error.message}</Alert>
     }
 
     if(isLoading){
-        <h1>Loading...</h1>
+        return <h1>Loading...</h1>
     }else {
         return (
             <div className={'banner'} style={{backgroundImage: "url(" + `https://www.themoviedb.org/t/p/w1066_and_h600_bestv2${data?.results[0].poster_path}` + ")"}}>
