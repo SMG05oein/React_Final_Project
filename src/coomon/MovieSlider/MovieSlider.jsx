@@ -12,6 +12,9 @@ const MovieSlider = ({sliderTitle, movies, responsive}) => {
             <Carousel
                 infinite={true}
                 centered={true}
+                showDots={true}
+                ssr={true}
+                // customTransition="all .5"
                 items={"movie-slider p1"}
                 containerClass="carousel-container"
                 responsive={responsive}

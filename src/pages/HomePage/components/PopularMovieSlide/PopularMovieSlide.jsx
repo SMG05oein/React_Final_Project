@@ -19,7 +19,7 @@ const PopularMovieSlide = ({API}) => {
         return <h1>Loading...</h1>
     }else{
         return (
-            <div >
+            <div className="Sliders">
                 <MovieSlider sliderTitle={"Popular Movies"} movies={API.data[0].results} responsive={responsive}/>
                 <MovieSlider sliderTitle={"Top Rated Movies"} movies={API.data[1].results} responsive={responsive}/>
                 <MovieSlider sliderTitle={"Upcoming Movies"} movies={API.data[2].results} responsive={responsive}/>
