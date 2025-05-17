@@ -2,12 +2,14 @@ import React from 'react';
 import './MoviesCard.style.css'
 import {Badge} from "react-bootstrap";
 import {useMoviesQuery} from "../../hooks/usseMoviesGenre";
+import {useNavigate} from "react-router-dom";
 
-const MoviesCard = ({movie}) => {
+const MoviesCard = ({movie, idx}) => {
 
     const {data:genreData} = useMoviesQuery();
     // console.log(genreData);
 
+    const navigate = useNavigate();
     const showGenre=(genreIdList)=>{
         if(!genreData) return [];
         else{
@@ -23,7 +25,7 @@ const MoviesCard = ({movie}) => {
     }
 
     return (
-        <div className={'moviesCard'}
+        <div className={'moviesCard'} onClick={()=>navigate(`/movies/${movie.id}`, {state: {movie}})}
         style={{backgroundImage: "url(" + `https://www.themoviedb.org/t/p/w1066_and_h600_bestv2${movie.poster_path}` + ")"}}
             >
             <div className="overLay">
@@ -34,7 +36,7 @@ const MoviesCard = ({movie}) => {
                     ))}
                 </div>
                 <div>평점: {movie.vote_average}</div>
-                <div>{movie.popularty}</div>
+                <div>{movie.popularity}</div>
                 <div>{movie.adult?"성인물" : "성인물 아님"}</div>
             </div>
         </div>
