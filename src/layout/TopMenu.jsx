@@ -18,6 +18,7 @@ const TopMenu = () => {
                         >
                             <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link href="movies">Movies</Nav.Link>
+                            <Nav.Link href="test">DevTest</Nav.Link>
                         </Nav>
                         <Form className="d-flex">
                             <Form.Control

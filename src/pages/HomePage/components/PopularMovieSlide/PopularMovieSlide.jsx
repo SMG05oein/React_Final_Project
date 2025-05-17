@@ -6,36 +6,23 @@ import "./PopularMovieSlide.style.css"
 import MovieSlider from "../../../../coomon/MovieSlider/MovieSlider";
 import {responsive} from "../../../../constants/responsive";
 
-const PopularMovieSlide = () => {
+const PopularMovieSlide = ({API}) => {
 
-    // const responsive = {
-    //     desktop: {
-    //         breakpoint: { max: 3000, min: 1024 },
-    //         items: 6,
-    //     },
-    //     tablet: {
-    //         breakpoint: { max: 1024, min: 464 },
-    //         items: 2,
-    //     },
-    //     mobile: {
-    //         breakpoint: { max: 464, min: 0 },
-    //         items: 1,
-    //     }
-    // };
+    // const {data, isLoading, isError, error} =usePopularMoviesQuery();
+    // const API =usePopularMoviesQuery();
 
-    const {data, isLoading, isError, error} =usePopularMoviesQuery();
-    if(isError){
-        return <Alert severity="danger">{error.message}</Alert>;
-    }
+    // if(isError){
+    //     return <Alert severity="danger">{error.message}</Alert>;
+    // }
 
-    if(isLoading){
+    if(API.isLoading){
         return <h1>Loading...</h1>
     }else{
         return (
             <div >
-                <MovieSlider sliderTitle={"Popular Movies"} movies={data.results} responsive={responsive}/>
-                <MovieSlider sliderTitle={"Top Rated Movies"} movies={data.results} responsive={responsive}/>
-                <MovieSlider sliderTitle={"Upcoming Movies"} movies={data.results} responsive={responsive}/>
+                <MovieSlider sliderTitle={"Popular Movies"} movies={API.data[0].results} responsive={responsive}/>
+                <MovieSlider sliderTitle={"Top Rated Movies"} movies={API.data[1].results} responsive={responsive}/>
+                <MovieSlider sliderTitle={"Upcoming Movies"} movies={API.data[2].results} responsive={responsive}/>
 
             </div>
         );

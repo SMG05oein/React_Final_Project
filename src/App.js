@@ -7,6 +7,7 @@ import Movies from "./pages/Movies/Movies";
 import MoviesView from "./pages/MoviesView/MoviesView";
 import NotFound from "./pages/NotFound/NotFound";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import DevTest from "./pages/DevTest/DevTest";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                         <Route index element={<Movies/>}/>
                         <Route path=":idx" element={<MoviesView/>}/>
                     </Route>
+                    <Route path="test" element={<DevTest/>}/>
                     {/*<Route path={"movies"} element={<Movies/>}/>*/}
                     {/*<Route path={"movies/:idx"} element={<MoviesView/>}/>*/}
                 </Route>
