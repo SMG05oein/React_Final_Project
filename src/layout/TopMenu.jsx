@@ -1,9 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, Container, Form, Nav, Navbar, NavDropdown} from "react-bootstrap";
-import {Outlet} from "react-router-dom";
+import {Outlet, useNavigate} from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
 const TopMenu = () => {
+
+    const [keyword, setKeyword] = useState("");
+    const navigate = useNavigate();
+    const searchByKeyword =(event)=>{
+        event.preventDefault();
+        navigate(`/movies?q=${keyword}`);
+        setKeyword("");
+    }
     return (
         <div className="top-menu">
             <Navbar expand="lg" className="bg-black" data-bs-theme="dark">
@@ -20,14 +28,16 @@ const TopMenu = () => {
                             <Nav.Link href="movies">Movies</Nav.Link>
                             <Nav.Link href="test">DevTest</Nav.Link>
                         </Nav>
-                        <Form className="d-flex">
+                        <Form className="d-flex" onSubmit={searchByKeyword}>
                             <Form.Control
                                 type="search"
                                 placeholder="검색"
                                 className="me-2"
                                 aria-label="Search"
+                                value={keyword}
+                                onChange={(event) => setKeyword(event.target.value)}
                             />
-                            <Button variant="outline-danger"><FaSearch /></Button>
+                            <Button variant="outline-danger" type={"submit"}><FaSearch /></Button>
                         </Form>
                     </Navbar.Collapse>
                 </Container>
