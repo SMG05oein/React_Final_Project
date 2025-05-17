@@ -14,3 +14,9 @@
     content: "Loading...";
     animation: blink 1s infinite;
 }
+
+
+.error::after {
+    content: "에러 원인 찾는 중...";
+    animation: blink 1s infinite;
+}
