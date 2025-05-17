@@ -26,3 +26,24 @@
 .banner-text-area > *{
     z-index: 2;
 }
+
+/* 📱 모바일 화면에서 배너 크기 조정 */
+@media (max-width: 100px) {
+    .banner {
+        height: 40vh; /* ✅ 모바일에서 높이 줄이기 */
+        background-size: contain; /* ✅ 이미지가 잘리지 않도록 */
+    }
+
+    .banner-text-area {
+        width: 90%; /* ✅ 모바일에서 텍스트 영역 확장 */
+        font-size: 14px; /* ✅ 텍스트 크기 조정 */
+    }
+
+    .banner-text-area h1 {
+        font-size: 18px; /* ✅ 제목 크기 줄이기 */
+    }
+
+    .banner-text-area p {
+        font-size: 12px; /* ✅ 설명 크기 줄이기 */
+    }
+}
