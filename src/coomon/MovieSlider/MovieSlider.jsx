@@ -16,7 +16,6 @@ const MovieSlider = ({sliderTitle, movies, responsive}) => {
                 ssr={true}
                 // customTransition="all .5"
                 items={"movie-slider p1"}
-                itemClass={"carousel-item-padding-40-px"}
                 containerClass="carousel-container"
                 responsive={responsive}
             >

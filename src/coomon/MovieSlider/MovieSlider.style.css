@@ -1,11 +1,5 @@
 .carousel-container{
     overflow: hidden;
-    height: 600px;
-    align-items: center;
-    justify-content: center;
+    height: 400px;
     width: 100%;
-}
-
-.carousel-item-padding-40-px {
-    margin: auto;
 }
