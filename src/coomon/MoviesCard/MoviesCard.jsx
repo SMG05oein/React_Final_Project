@@ -9,12 +9,12 @@ const MoviesCard = ({movie}) => {
             >
             <div className="overLay">
                 <div>
-                    <h1>{movie.title}</h1>
+                    <h3>{movie.title}</h3>
                     {movie.genre_ids.map((id) => (
                         <Badge bg={"danger"}>{id}</Badge>
                     ))}
                 </div>
-                <div>{movie.vote_average}</div>
+                <div>평점: {movie.vote_average}</div>
                 <div>{movie.popularty}</div>
                 <div>{movie.adult?"성인물" : "성인물 아님"}</div>
             </div>

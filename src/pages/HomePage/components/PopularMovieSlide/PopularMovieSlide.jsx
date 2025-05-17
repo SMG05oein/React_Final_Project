@@ -1,27 +1,27 @@
 import React from 'react';
 import {usePopularMoviesQuery} from "../../../../hooks/usePopularMovies";
 import {Alert} from "react-bootstrap";
-import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import MoviesCard from "../MoviesCard/MoviesCard";
 import "./PopularMovieSlide.style.css"
+import MovieSlider from "../../../../coomon/MovieSlider/MovieSlider";
+import {responsive} from "../../../../constants/responsive";
 
 const PopularMovieSlide = () => {
 
-    const responsive = {
-        desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 6,
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 2,
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1,
-        }
-    };
+    // const responsive = {
+    //     desktop: {
+    //         breakpoint: { max: 3000, min: 1024 },
+    //         items: 6,
+    //     },
+    //     tablet: {
+    //         breakpoint: { max: 1024, min: 464 },
+    //         items: 2,
+    //     },
+    //     mobile: {
+    //         breakpoint: { max: 464, min: 0 },
+    //         items: 1,
+    //     }
+    // };
 
     const {data, isLoading, isError, error} =usePopularMoviesQuery();
     if(isError){
@@ -33,16 +33,10 @@ const PopularMovieSlide = () => {
     }else{
         return (
             <div >
-                <h3>Popular Movies</h3>
-                <Carousel
-                    infinite={true}
-                    centered={true}
-                    items={"movie-slider p1"}
-                    containerClass="carousel-container"
-                    responsive={responsive}
-                >
-                    {data.results.map((movie,idx) => (<MoviesCard movie={movie} idx={idx}></MoviesCard>))}
-                </Carousel>
+                <MovieSlider sliderTitle={"Popular Movies"} movies={data.results} responsive={responsive}/>
+                <MovieSlider sliderTitle={"Top Rated Movies"} movies={data.results} responsive={responsive}/>
+                <MovieSlider sliderTitle={"Upcoming Movies"} movies={data.results} responsive={responsive}/>
+
             </div>
         );
     }
