@@ -1,8 +1,27 @@
 import React from 'react';
 import './MoviesCard.style.css'
 import {Badge} from "react-bootstrap";
+import {useMoviesQuery} from "../../hooks/usseMoviesGenre";
 
 const MoviesCard = ({movie}) => {
+
+    const {data:genreData} = useMoviesQuery();
+    // console.log(genreData);
+
+    const showGenre=(genreIdList)=>{
+        if(!genreData) return [];
+        else{
+            const genreNameList = genreIdList.map((id)=>{
+                const ObjGenre = genreData.find((genre) => genre.id === id);
+                return ObjGenre.name;
+            })
+
+            return genreNameList
+        }
+
+
+    }
+
     return (
         <div className={'moviesCard'}
         style={{backgroundImage: "url(" + `https://www.themoviedb.org/t/p/w1066_and_h600_bestv2${movie.poster_path}` + ")"}}
@@ -10,8 +29,8 @@ const MoviesCard = ({movie}) => {
             <div className="overLay">
                 <div>
                     <h3>{movie.title}</h3>
-                    {movie.genre_ids.map((id) => (
-                        <Badge bg={"danger"}>{id}</Badge>
+                    {showGenre(movie.genre_ids).map((id, index) => (
+                        <Badge bg={"danger"} key={index}>{id}</Badge>
                     ))}
                 </div>
                 <div>평점: {movie.vote_average}</div>
