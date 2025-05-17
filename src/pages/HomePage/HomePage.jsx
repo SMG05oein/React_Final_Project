@@ -28,15 +28,14 @@ const HomePage = () => {
                 )}
             </div>
         );
-    }else{
-        return (
-            <div>
-                <Banner API={API} />
-                <PopularMovieSlide API={API} />
-            </div>
-        );
-
     }
+
+    return (
+        <div>
+            <Banner API={API} />
+            <PopularMovieSlide API={API} />
+        </div>
+    );
 };
 
 
