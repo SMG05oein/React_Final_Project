@@ -1,30 +1,18 @@
 import React from 'react';
-import {useLocation, useParams, useSearchParams} from "react-router-dom";
-import {Badge, Col, Container, Row} from "react-bootstrap";
+import {useLocation, useNavigate, useParams, useSearchParams} from "react-router-dom";
+import {Badge, Button, Col, Container, Row} from "react-bootstrap";
 import {useMoviesViewQuery} from "../../hooks/useMovieView";
 import "./MoviesView.style.css"
 import {useMoviesQuery} from "../../hooks/usseMoviesGenre";
+import Review from "./Review/Review";
 
 const MoviesView = () => {
     let {idx} = useParams();
     // console.log(idx);
     const {data, isLoading, isError, error} = useMoviesViewQuery(idx);
-    console.log("MMMMMM", data);
+    // console.log("MMMMMM", data);
 
-    const {data:genreData} = useMoviesQuery();
-    const showGenre=(genreIdList)=>{
-        if(!genreData) return [];
-        else{
-            const genreNameList = genreIdList.map((id)=>{
-                const ObjGenre = genreData.find((genre) => genre.id === id);
-                return ObjGenre.name;
-            })
-
-            return genreNameList
-        }
-
-
-    }
+    const navigate = useNavigate();
 
     if(isLoading) {
         return <h1 className={"loading"}></h1>
@@ -61,10 +49,13 @@ const MoviesView = () => {
                                 <div>상영 시간: {data.runtime}분</div>
                                 <div>예산: $ {data.budget.toLocaleString()}</div>
                                 <div>수익: $ {data.revenue.toLocaleString()}</div>
-
-
+                                <Button variant={"primary"} onClick={()=>navigate("/")}>홈으로</Button>
                             </div>
                         </Col>
+                    </Row>
+                    <hr/>
+                    <Row>
+                        <Review idx={idx}/>
                     </Row>
                 </Container>
             </div>
