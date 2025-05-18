@@ -1,0 +1,36 @@
+.Box {
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #000000;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.Box strong {
+    font-size: 18px;
+    color: yellow;
+}
+.Box div {
+    font-size: 14px;
+    color: white;
+}
+
+.Box .Row {
+    margin-bottom: 8px;
+}
+
+.Box .Col {
+    font-size: 14px;
+    color: #555;
+}
+
+.Box .Col:first-child {
+    font-weight: bold;
+}
+
+.Box:hover {
+    background-color: #555;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
