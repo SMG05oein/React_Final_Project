@@ -13,7 +13,7 @@ const Review = ({idx}) => {
             <hr style={{marginTop: '2px'}}/>
                 {data?.map((item) => (
                     <Container>
-                        <div className={"Box"}>
+                        <div className={"Box"} onClick={()=>{alert("상세 페이지 개발 중")}}>
                             <Row>
                                 <Col><strong>작성자: {item.author}</strong></Col>
                                 <Col><div>작성일: {item.created_at.substr(0, 10)}</div></Col>
