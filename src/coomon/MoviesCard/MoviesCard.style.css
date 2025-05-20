@@ -25,6 +25,7 @@
 .moviesCard {
     width: 98%;
     height: 300px;
+    background-position:center;
     background-size: cover;
     cursor: pointer;
     transition: 0.5s;

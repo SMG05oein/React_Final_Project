@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 50vh;
+    height: 100%;
     background-size: cover;
     background-position: center;
 }
@@ -18,4 +18,16 @@
 
 .just_card_not {
     display: flex !important;
+}
+
+@media screen and (max-width: 991px) {
+    .poster_card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 40vh;
+        background-size: cover;
+        background-position: center;
+    }
 }
