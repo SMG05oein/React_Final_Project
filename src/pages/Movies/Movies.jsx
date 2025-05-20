@@ -42,9 +42,9 @@ const Movies = () => {
                         필터
                     </Col>
                     <Col lg={8} xs={12}>
-                        <Row>
+                        <Row className="justify-content-center">
                             {data?.results.map((movie, index)=>
-                                <Col key={index} lg={4} xs={12}>
+                                <Col key={index} lg={4} md={6} xs={8}>
                                     <MoviesCard movie={movie} responsive={responsive}/>
                                 </Col>)}
                         </Row>

@@ -23,10 +23,10 @@ const MoviesCard = ({movie, idx}) => {
 
 
     }
-
+    //1066 600
     return (
         <div className={'moviesCard'} onClick={()=>navigate(`/movies/${movie.id}`, {state: {movie}})}
-        style={{backgroundImage: "url(" + `https://www.themoviedb.org/t/p/w1066_and_h600_bestv2${movie.poster_path}` + ")"}}
+        style={{backgroundImage: "url(" + `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}` + ")"}}
             >
             <div className="overLay">
                 <div>

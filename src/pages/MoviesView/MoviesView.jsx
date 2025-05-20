@@ -21,12 +21,12 @@ const MoviesView = () => {
             <div>
                 <Container >
                     <Row>
-                        <Col lg={5}>
+                        <Col lg={4}>
                             <div className={'poster_card'}
-                            style={{backgroundImage: "url(" + `https://www.themoviedb.org/t/p/w1066_and_h600_bestv2${data?.poster_path}` + ")"}}
+                            style={{backgroundImage: "url(" + `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${data?.poster_path}` + ")"}}
                             />
                         </Col>
-                        <Col lg={6}>
+                        <Col lg={8}>
                             <div className={'just_card'}>
                                 <div>
                                     {data.genres.map((item) => (
