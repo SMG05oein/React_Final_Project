@@ -1,0 +1,63 @@
+.OneRow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.OneCol {
+    display: flex;
+    flex-direction: column;
+}
+
+.OneOneCol {
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 20px;
+}
+
+.OneTwoCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-left: auto;
+    font-size: 16px;
+}
+
+.OneThrCol {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 10px;
+}
+
+.OneTwoAddCol{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;;
+    margin-right: auto;
+    font-size: 24px;
+
+}
+
+@media screen and (max-width: 991px) {
+    .OneOneCol {
+        font-size: 16px;
+    }
+
+    .OneTwoAddCol {
+        font-size: 16px;
+    }
+
+    .OneTwoCol {
+        font-size: 12px;
+    }
+
+    .OneThrCol {
+        font-size: 8px;
+    }
+}

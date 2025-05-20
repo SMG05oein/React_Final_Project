@@ -8,6 +8,7 @@ import MoviesView from "./pages/MoviesView/MoviesView";
 import NotFound from "./pages/NotFound/NotFound";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DevTest from "./pages/DevTest/DevTest";
+import ReviewView from "./pages/MoviesView/Review/ReviewView";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                     <Route path="movies"> {/**와우 혁신적이고 혁명적인 발상!! SsaBalJeg*/}
                         <Route index element={<Movies/>}/>
                         <Route path=":idx" element={<MoviesView/>}/>
+                        <Route path="review/:idx/:id" element={<ReviewView/>}/>
                     </Route>
                     <Route path="test" element={<DevTest/>}/>
                     {/*<Route path={"movies"} element={<Movies/>}/>*/}
