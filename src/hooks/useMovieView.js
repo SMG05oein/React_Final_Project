@@ -2,7 +2,7 @@ import {useQuery} from "@tanstack/react-query";
 import api from "../utils/api";
 
 const fetchSearchMovies = (id) => {
-    return api.get(`movie/${Number(id)}`);
+    return api.get(`movie/${Number(id)}?language=ko-KR`);
 }
 
 export const useMoviesViewQuery = (id) => {
