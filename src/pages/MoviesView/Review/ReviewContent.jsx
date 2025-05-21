@@ -32,8 +32,8 @@ const ReviewContent = ({item, idx, img}) => {
         <div>
 
             <Container>
-                <div className={"Box"} onClick={()=>{navigate(`/movies/review/${item.id}/${idx}${img}`)}}>
-                    <Row>
+                <div className={"Box"}>
+                    <Row  onClick={()=>{navigate(`/movies/review/${item.id}/${idx}${img}`)}}>
                         <Col><strong>작성자: {item.author}</strong></Col>
                         <Col><div>작성일: {item.created_at.substr(0, 10)}</div></Col>
                         <Row>
@@ -45,10 +45,12 @@ const ReviewContent = ({item, idx, img}) => {
                             </Col>
                         </Row>
                     </Row>
+                    <a className={"check_text"} onClick={(event) => {
+                        setIsShowMore(!isShowMore)
+                    }}>
+                        {item.content.length > textLimit.current && isShowMore ? "[접기]" : "...[더보기]"}
+                    </a>
                 </div>
-                <a className={"check_text"} onClick={() => setIsShowMore(!isShowMore)}>
-                    {item.content.length > textLimit.current && isShowMore ? "[접기]" : "...[더보기]"}
-                </a>
             </Container>
         </div>
     );

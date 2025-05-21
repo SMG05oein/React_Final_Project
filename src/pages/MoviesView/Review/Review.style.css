@@ -8,6 +8,7 @@
 }
 .check_text{
     z-index: 1;
+    cursor: pointer;
 }
 
 .Box strong {
