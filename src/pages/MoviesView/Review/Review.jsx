@@ -2,13 +2,13 @@ import React, {useMemo, useRef, useState} from 'react';
 import {useReview} from "../../../hooks/useReview";
 import {Col, Container, Row} from "react-bootstrap";
 import './Review.style.css'
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import ReviewContent from "./ReviewContent";
 
-const Review = ({idx}) => {
+const Review = ({img ,idx}) => {
     const {data, isLoading, isError, error} = useReview(idx);
     // console.log("Review", data)
-
+    // const {img} = useParams();
 
 
     // console.log(ItemContent);
@@ -19,7 +19,7 @@ const Review = ({idx}) => {
             <hr style={{marginTop: '2px'}}/>
             {data?.map((item)=>{
                 // console.log(item);
-                return <ReviewContent item={item} idx={idx} key={idx}/>
+                return <ReviewContent item={item} idx={idx} img={img}/>
             })}
                 {/*{data?.map((item) => (*/}
                 {/*    <Container>*/}

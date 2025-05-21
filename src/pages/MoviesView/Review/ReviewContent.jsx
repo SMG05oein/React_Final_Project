@@ -3,8 +3,8 @@ import {Col, Container, Row} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import "./Review"
 
-const ReviewContent = ({item, idx}) => {
-    console.log("ReviewContent: ",item);
+const ReviewContent = ({item, idx, img}) => {
+    // console.log("ReviewContent: ",img);
 
     //그렇다 이건 주석이다 마오주석?
     const [isShowMore, setIsShowMore] = useState(false); // 더보기 열고 닫는 스위치
@@ -32,7 +32,7 @@ const ReviewContent = ({item, idx}) => {
         <div>
 
             <Container>
-                <div className={"Box"} onClick={()=>{navigate(`/movies/review/${item.id}/${idx}`)}}>
+                <div className={"Box"} onClick={()=>{navigate(`/movies/review/${item.id}/${idx}${img}`)}}>
                     <Row>
                         <Col><strong>작성자: {item.author}</strong></Col>
                         <Col><div>작성일: {item.created_at.substr(0, 10)}</div></Col>

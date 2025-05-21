@@ -5,9 +5,9 @@ import {Button, Col, Container, Row} from "react-bootstrap";
 import "./ReviewView.style.css"
 
 const ReviewView = () => {
-    let {idx, id} = useParams();
+    let {idx, id, img} = useParams();
     const {data, isLoading, isError, error} = useReviewView(idx);
-    console.log("Review", data)
+    console.log("Review", img)
 
     const navigation = useNavigate();
     if(isLoading) {
@@ -41,10 +41,15 @@ const ReviewView = () => {
                         </Col>
                         <hr style={{marginTop:"10px"}}></hr>
                         <Row>
-                            <Col lg={12} md={12} sm={12} xs={12}>
+                            <Col lg={4} md={8} xs={12}>
+                                <div className={'RV_poster_card'}
+                                    style={{backgroundImage: "url(" + `https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${img}` + ")"}}
+                                />
+                            </Col>
+                            <Col lg={8} md={12} xs={12}>
                                 <div className={"BBox"}>
                                     <div className={"BoxTitle"}>
-                                        내용
+                                    내용
                                         <div style={{ marginLeft:"auto"}}>언어:{data.iso_639_1}</div>
                                     </div>
                                     <div className={"BoxContent"}>

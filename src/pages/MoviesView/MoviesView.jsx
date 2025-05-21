@@ -55,7 +55,7 @@ const MoviesView = () => {
                     </Row>
                     <hr/>
                     <Row>
-                        <Review idx={idx}/>
+                        <Review img={data?.poster_path} idx={idx}/>
                     </Row>
                 </Container>
             </div>
