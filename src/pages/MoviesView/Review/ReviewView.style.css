@@ -43,6 +43,26 @@
     font-size: 24px;
 
 }
+.BBox{
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #000000;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.BoxTitle{
+    display: flex;
+    font-weight: bold;
+    font-size: 20px;
+    width: 100%;
+}
+
+.BoxContent{
+    justify-content: flex-end;
+    align-items: flex-end;
+}
 
 @media screen and (max-width: 991px) {
     .OneOneCol {

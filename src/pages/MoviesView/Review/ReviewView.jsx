@@ -1,8 +1,7 @@
 import React from 'react';
-import {useNavigate, useNavigation, useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useReviewView} from "../../../hooks/useReviewView";
 import {Button, Col, Container, Row} from "react-bootstrap";
-// import "./Review.style.css"
 import "./ReviewView.style.css"
 
 const ReviewView = () => {
@@ -16,6 +15,9 @@ const ReviewView = () => {
     }else{
         return (
             <div>
+                <div style={{textAlign: "center", fontSize: "30px"}}>
+                    리뷰 상세 보기
+                </div>
                 <Container>
                     <Row>
                         <Col lg={12} md={12} sm={12} xs={12}>
@@ -40,9 +42,16 @@ const ReviewView = () => {
                         <hr style={{marginTop:"10px"}}></hr>
                         <Row>
                             <Col lg={12} md={12} sm={12} xs={12}>
-                                <div>
-                                    s
+                                <div className={"BBox"}>
+                                    <div className={"BoxTitle"}>
+                                        내용
+                                        <div style={{ marginLeft:"auto"}}>언어:{data.iso_639_1}</div>
+                                    </div>
+                                    <div className={"BoxContent"}>
+                                        {data.content}
+                                    </div>
                                 </div>
+                                <a href={data.url}>원본 URL</a>
                             </Col>
                         </Row>
                     </Row>
