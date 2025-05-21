@@ -7,7 +7,7 @@ import './HomePage.style.css'
 
 const HomePage = () => {
     const API = usePopularMoviesQuery();
-    console.log("HomePage: ", API);
+    // console.log("HomePage: ", API);
 
     // <Suspense fallback={<div>Loading...</div>}></Suspense>;
     /**위에껀 로딩 관련 된 거

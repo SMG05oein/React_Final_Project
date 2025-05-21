@@ -32,6 +32,6 @@ export const usePopularMoviesQuery = () => {
             }
         },
     })
-    console.log("USEEE: " ,result);
+    // console.log("USEEE: " ,result);
     return result;
 }

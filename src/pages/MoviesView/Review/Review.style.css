@@ -6,6 +6,9 @@
     background-color: #000000;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
+.check_text{
+    z-index: 1;
+}
 
 .Box strong {
     font-size: 18px;
