@@ -9,6 +9,7 @@ const ReviewContent = ({item, idx, img}) => {
     //그렇다 이건 주석이다 마오주석?
     const [isShowMore, setIsShowMore] = useState(false); // 더보기 열고 닫는 스위치
     const textLimit = useRef(180); //글자수 제한
+    let checkcheck = true;
     // 조건에 따라 게시글을 보여주는 함수 | 모르는 함수?가 많네
     /**FUCK
      * Find
@@ -24,6 +25,9 @@ const ReviewContent = ({item, idx, img}) => {
                 return item.content; // 더보기가 true면 원본 바로 리턴
             }
             return shortReview; // (더보기가 false면) 짧은 버전 리턴
+        }else{
+            checkcheck = false;
+            return shortReview;
         }
     }, [isShowMore]); // isShowMore의 상태가 바뀔때마다 호출됨
 
@@ -45,10 +49,8 @@ const ReviewContent = ({item, idx, img}) => {
                             </Col>
                         </Row>
                     </Row>
-                    <a className={"check_text"} onClick={(event) => {
-                        setIsShowMore(!isShowMore)
-                    }}>
-                        {item.content.length > textLimit.current && isShowMore ? "[접기]" : "...[더보기]"}
+                    <a className={"check_text"} onClick={() => {setIsShowMore(!isShowMore)}}>
+                        { checkcheck ? ((item.content.length > textLimit.current) && isShowMore)? "[접기]" : "...[더보기]" : ""}
                     </a>
                 </div>
             </Container>

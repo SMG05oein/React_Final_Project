@@ -13,7 +13,7 @@ const Movies = () => {
     const [page, setPage] = useState(1);
     const {data, isLoading, isError, error} = useSearchMoviesQuery({keyword, page})
 
-    console.log("Movies: ",data);
+    // console.log("Movies: ",data);
 
     const handlePageClick=({selected})=>{
         setPage(selected+1);

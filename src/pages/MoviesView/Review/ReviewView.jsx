@@ -7,7 +7,7 @@ import "./ReviewView.style.css"
 const ReviewView = () => {
     let {idx, id, img} = useParams();
     const {data, isLoading, isError, error} = useReviewView(idx);
-    console.log("Review", img)
+    // console.log("Review", img)
 
     const navigation = useNavigate();
     if(isLoading) {
