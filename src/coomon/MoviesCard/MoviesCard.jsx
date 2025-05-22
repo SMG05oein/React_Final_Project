@@ -13,7 +13,7 @@ const MoviesCard = ({movie, idx}) => {
     const showGenre=(genreIdList)=>{
         if(!genreData) return [];
         else{
-            const genreNameList = genreIdList.map((id)=>{
+            const genreNameList = genreIdList?.map((id)=>{
                 const ObjGenre = genreData.find((genre) => genre.id === id);
                 return ObjGenre.name;
             })
@@ -25,13 +25,16 @@ const MoviesCard = ({movie, idx}) => {
     }
     //1066 600
     return (
-        <div className={'moviesCard'} onClick={()=>navigate(`/movies/${movie.id}`, {state: {movie}})}
+        <div className={'moviesCard'} onClick={()=> {
+            navigate(`/movies/${movie.id}`);
+            window.location.reload();
+        }}
         style={{backgroundImage: "url(" + `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}` + ")"}}
             >
             <div className="overLay">
                 <div>
                     <h3>{movie.title}</h3>
-                    {showGenre(movie.genre_ids).map((id, index) => (
+                    {showGenre(movie.genre_ids)?.map((id, index) => (
                         <Badge bg={"danger"} key={index}>{id}</Badge>
                     ))}
                 </div>

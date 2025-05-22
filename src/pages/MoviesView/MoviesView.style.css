@@ -20,6 +20,23 @@
     display: flex !important;
 }
 
+.그거{
+    width: 130px!important;
+}
+
+.Video{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 46vh;
+}
+.Video div{
+    cursor: pointer;
+}
+
+/*.YouTube {*/
+/*    height: 400vh !important;*/
+/*}*/
 @media screen and (max-width: 991px) {
     .poster_card {
         display: flex;
@@ -30,4 +47,10 @@
         background-size: cover;
         background-position: center;
     }
+
+    /*.Video{*/
+    /*    height: 30vh;*/
+    /*    width: 10px;*/
+    /*}*/
 }
+
