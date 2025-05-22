@@ -13,7 +13,7 @@ const RecommendMovie = ({idx}) => {
                 [{!isReviewOn ? "열기" : "닫기"}]
             </h3>
             <div style={{display: isReviewOn ? 'block' : 'none'}}>
-                <MovieSlider sliderTitle={""} movies={data?.results} responsive={responsive}></MovieSlider>
+                <MovieSlider sliderTitle={""} movies={data?.results ? data.results : ["API호출 중..."]} responsive={responsive}></MovieSlider>
             </div>
         </div>
     );
