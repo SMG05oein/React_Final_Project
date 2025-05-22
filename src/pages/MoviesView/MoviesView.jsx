@@ -51,6 +51,8 @@ const MoviesView = () => {
                                 <div>예산: $ {data.budget.toLocaleString()}</div>
                                 <div>수익: $ {data.revenue.toLocaleString()}</div>
                                 <Button variant={"primary"} onClick={()=>navigate("/")}>홈으로</Button>
+                                <br/>
+                                <Button className="그거" variant={"outline-info"}>예고편 보기</Button>
                             </div>
                         </Col>
                     </Row>
