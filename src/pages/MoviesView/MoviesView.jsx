@@ -5,6 +5,7 @@ import {useMoviesViewQuery} from "../../hooks/useMovieView";
 import "./MoviesView.style.css"
 import {useMoviesQuery} from "../../hooks/usseMoviesGenre";
 import Review from "./Review/Review";
+import RecommendMovie from "./recommend_movie/RecommendMovie";
 
 const MoviesView = () => {
     let {idx} = useParams();
@@ -56,6 +57,10 @@ const MoviesView = () => {
                     <hr/>
                     <Row>
                         <Review img={data?.poster_path} idx={idx}/>
+                    </Row>
+                    <hr/>
+                    <Row>
+                        <RecommendMovie idx={idx}/>
                     </Row>
                 </Container>
             </div>
