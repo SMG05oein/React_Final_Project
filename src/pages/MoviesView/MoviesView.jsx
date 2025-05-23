@@ -12,6 +12,7 @@ const MoviesView = () => {
     let {idx} = useParams();
 
     const [videoIdx, setVideoIdx] = useState(0);
+    const [URL, setURL] = useState(null);
     // const {data, isLoading, isError, error} = useMoviesViewQuery(idx); //<-따로 따로 부르니깐 안 됨
     const {data, isLoading, isError, error} = usePreviewQuery(idx);
     const [videoKey, setVideoKey] = useState(data[1]?.results[videoIdx]?.key);
@@ -22,6 +23,20 @@ const MoviesView = () => {
     useEffect(() => {
         setVideoKey(data[1]?.results[videoIdx]?.key);
     }, [data[1]?.results[videoIdx]?.key]);
+
+    const location = useLocation();
+
+    useEffect(() => {
+        const handlePopState = () => {
+            // console.log("뒤로 가기 버튼이 눌렸습니다.");
+            window.location.reload();
+        };
+        window.addEventListener("popstate", handlePopState);
+
+        return () => {
+            window.removeEventListener("popstate", handlePopState);
+        };
+    }, []);
 
     const [showModal, setShowModal] = useState(false);
 
