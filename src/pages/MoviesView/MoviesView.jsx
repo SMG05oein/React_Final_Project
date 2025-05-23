@@ -14,16 +14,14 @@ const MoviesView = () => {
     const [videoIdx, setVideoIdx] = useState(0);
     // const {data, isLoading, isError, error} = useMoviesViewQuery(idx); //<-따로 따로 부르니깐 안 됨
     const {data, isLoading, isError, error} = usePreviewQuery(idx);
-    const [videoKey, setVideoKey] = useState(data[1]?.results[videoIdx].key);
-    console.log(videoIdx);
-    console.log(data[1]?.results[videoIdx].key);
+    const [videoKey, setVideoKey] = useState(data[1]?.results[videoIdx]?.key);
 
     useEffect(() => {
         setVideoIdx(0);
     }, []);
     useEffect(() => {
-        setVideoKey(data[1]?.results[videoIdx].key);
-    }, [data[1]?.results[videoIdx].key]);
+        setVideoKey(data[1]?.results[videoIdx]?.key);
+    }, [data[1]?.results[videoIdx]?.key]);
 
     const [showModal, setShowModal] = useState(false);
 
@@ -99,7 +97,7 @@ const MoviesView = () => {
                     // centered
                     contentClassName="bg-dark text-center text-white"
                 >
-                    <Modal.Header closeButton closeVariant="white">예고편</Modal.Header>
+                    <Modal.Header closeButton closeVariant="white">예고편 총 {data[1].results.length}개</Modal.Header>
                     <Modal.Body>
                         <div className={"Video"}>
                             <div style={{
@@ -115,11 +113,11 @@ const MoviesView = () => {
                             </div>
                             <div style={{
                                 marginLeft: '20px',
-                                cursor: !(videoIdx === data[1].results.length) ? "pointer" : "auto",
-                                pointerEvents: (videoIdx === data[1].results.length) ? "none" : "auto"
+                                cursor: !(videoIdx === data[1].results.length-1) ? "pointer" : "auto",
+                                pointerEvents: (videoIdx === data[1].results.length-1) ? "none" : "auto"
                             }}
                                 onClick={()=>setVideoIdx(videoIdx+1)}>
-                                {videoIdx !== data[1].results.length ? "다음편" : "없음"}
+                                {videoIdx !== data[1].results.length-1 ? "다음편" : "없음"}
                             </div>
                         </div>
                     </Modal.Body>
