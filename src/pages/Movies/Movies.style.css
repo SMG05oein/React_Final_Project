@@ -14,7 +14,10 @@
     content: "Loading...";
     animation: blink 1s infinite;
 }
-
+.movies_filter{
+    background-color: #555555;
+    height: 93%;
+}
 
 /*@media (max-width: 1000px){*/
 /*    .colcolcolcol{*/

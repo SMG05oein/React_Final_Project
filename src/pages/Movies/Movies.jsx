@@ -6,15 +6,18 @@ import {Alert, Col, Container, Row} from "react-bootstrap";
 import MoviesCard from "../../coomon/MoviesCard/MoviesCard";
 import {responsive} from "../../constants/responsive";
 import ReactPaginate from "react-paginate";
+import GenreFilter from "./filters/GenreFilter";
 
 const Movies = () => {
     const [query, setQuery] = useSearchParams()
+    const [g, setG] = useState([]);
     const keyword = query.get('q');
     const [page, setPage] = useState(1);
     const {data, isLoading, isError, error} = useSearchMoviesQuery({keyword, page})
 
     // console.log("Movies: ",data);
 
+    // console.log("Movies: ",g);
     const handlePageClick=({selected})=>{
         setPage(selected+1);
     }
@@ -39,7 +42,9 @@ const Movies = () => {
             <Container>
                 <Row>
                     <Col lg={4} xs={12}>
-                        필터
+                        <div className="movies_filter">
+                            <GenreFilter setG={setG}/>
+                        </div>
                     </Col>
                     <Col lg={8} xs={12}>
                         <Row className="justify-content-center">
@@ -48,13 +53,14 @@ const Movies = () => {
                                     <MoviesCard movie={movie} responsive={responsive}/>
                                 </Col>)}
                         </Row>
+                        <br/>
                         <ReactPaginate
-                            nextLabel="next >"
+                            nextLabel=">"
                             onPageChange={handlePageClick}
                             pageRangeDisplayed={3}
                             marginPagesDisplayed={2}
                             pageCount={data?.total_pages}
-                            previousLabel="< previous"
+                            previousLabel="<"
                             pageClassName="page-item"
                             pageLinkClassName="page-link"
                             previousClassName="page-item"
