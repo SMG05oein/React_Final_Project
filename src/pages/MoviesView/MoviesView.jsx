@@ -16,13 +16,14 @@ const MoviesView = () => {
     const {data, isLoading, isError, error} = usePreviewQuery(idx);
     const [videoKey, setVideoKey] = useState(data[1]?.results[videoIdx].key);
     console.log(videoIdx);
+    console.log(data[1]?.results[videoIdx].key);
 
     useEffect(() => {
         setVideoIdx(0);
     }, []);
     useEffect(() => {
         setVideoKey(data[1]?.results[videoIdx].key);
-    }, [videoIdx]);
+    }, [data[1]?.results[videoIdx].key]);
 
     const [showModal, setShowModal] = useState(false);
 
